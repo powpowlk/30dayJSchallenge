@@ -18,28 +18,78 @@
     }
 
     // Regular
+    console.log('Regular log');
 
     // Interpolated
+    var log  = 'log';
+    console.log('Interpolated %s', 'log');
+    console.log(`Interpolated ${log}`);
 
     // Styled
+    console.log('%cStyled log', 'color: red; text-shadow: 2.5px 2.5px 0 black');
 
     // warning!
+    console.warn('Warning!');
 
     // Error :|
+    console.error('ERR');
 
     // Info
+    console.info('Info');
 
     // Testing
+    const p = document.querySelector('p');
+    console.assert(p.innerHTML.includes('ouch'),'NO');
+    console.assert(p.classList.contains('ouch'),'NO');
+    console.assert(p.innerHTML.includes('×BREAK×DOWN×'),'NO');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+    console.clear();
 
     // Grouping together
+    dogs.forEach(dog => {
+      //console.group(`${dog.name}`);
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.log('%s', '\n');
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
+    console.count('chicasprogramando');
+    console.count('wes');
+    console.count('chicasprogramando');
+    console.count('wes');
+    console.count('wes');
+    console.count('chicasprogramando');
+    console.count('chicasprogramando');
+    console.count('bos');
+    console.count('bos');
+    console.count('chicasprogramando');
+    console.count('chicasprogramando');
+    console.count('bos');
+    console.count('chicasprogramando');
+    console.count('chicasprogramando');
+    console.count('chicasprogramando');
+    console.count('chicasprogramando');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/chicasprogramandoarg')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log('Gracias %s por este desafio', data.name);
+      });
+
+    console.table(dogs);
 
   </script>
 </body>
