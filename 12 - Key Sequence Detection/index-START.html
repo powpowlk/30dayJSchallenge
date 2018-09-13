@@ -4,9 +4,29 @@
   <meta charset="UTF-8">
   <title>Key Detection</title>
   <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+  <style media="screen">
+    html{
+
+      background-color: #42a5f5;
+    }
+  </style>
 </head>
 <body>
+  <img src="http://imagenpng.com/wp-content/uploads/2016/09/6Troy4q7c.png" id="img" width="100%">
 <script>
+  const pressed = [];
+  const secretCode = 'perrito';
+  document.querySelector('#img').style.display = 'none';
+
+  window.addEventListener('keyup', (e) => {
+    pressed.push(e.key);
+    pressed.splice(-secretCode.length  -1, pressed.length - secretCode.length);
+
+    if (pressed.join('') === secretCode){
+      alert('Bieeeen!');
+      document.querySelector('#img').style.display = 'flex';
+    }
+  });
 </script>
 </body>
 </html>
